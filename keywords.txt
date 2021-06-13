@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map PMS5003Sensor
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+PMS5003Sensor	KEYWORD1
+PMS5003data	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+read	KEYWORD2
+pm1_0str	KEYWORD2
+pm2_5str	KEYWORD2
+pm10_0str	KEYWORD2
+print_cu_std    KEYWORD2
+print_cu_env    KEYWORD2
+print_particles KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
