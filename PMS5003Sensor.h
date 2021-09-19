@@ -8,6 +8,8 @@
 
 #define DEBUG
 
+#include <Arduino.h>
+
 struct PMS5003data
 {
   // frame length = 2 * 13 + 2(data + check bytes)
@@ -23,10 +25,11 @@ struct PMS5003data
   uint16_t checksum;
 };
 
+template <class T>
 class PMS5003Sensor
 {
   public:
-    explicit PMS5003Sensor(Stream&);
+    explicit PMS5003Sensor(T&);
     bool read();
     String pm1_0str();
     String pm2_5str();
@@ -36,7 +39,7 @@ class PMS5003Sensor
     void print_particles();
 
   private:
-    Stream* stream;
+    T* stream;
     PMS5003data pmsData;
 };
 

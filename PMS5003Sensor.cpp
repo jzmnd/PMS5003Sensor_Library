@@ -3,16 +3,18 @@
   PMS 5003 Sensor Library
 */
 
-#include <HardwareSerial.h>
+#include <Arduino.h>
 #include "PMS5003Sensor.h"
 
-PMS5003Sensor::PMS5003Sensor(Stream& s)
+template <class T>
+PMS5003Sensor<T>::PMS5003Sensor(T& s)
   : pmsData()
 {
   this->stream = &s;
 }
 
-bool PMS5003Sensor::read()
+template <class T>
+bool PMS5003Sensor<T>::read()
 {
   if (! stream->available()) {
     return false;
@@ -63,22 +65,26 @@ bool PMS5003Sensor::read()
   return true;
 }
 
-String PMS5003Sensor::pm1_0str()
+template <class T>
+String PMS5003Sensor<T>::pm1_0str()
 {
   return String(pmsData.pm1_0_standard);
 }
 
-String PMS5003Sensor::pm2_5str()
+template <class T>
+String PMS5003Sensor<T>::pm2_5str()
 {
   return String(pmsData.pm2_5_standard);
 }
 
-String PMS5003Sensor::pm10_0str()
+template <class T>
+String PMS5003Sensor<T>::pm10_0str()
 {
   return String(pmsData.pm10_0_standard);
 }
 
-void PMS5003Sensor::print_cu_std()
+template <class T>
+void PMS5003Sensor<T>::print_cu_std()
 {
   Serial.println("Concentration Units (standard)");
   Serial.print("PM 1.0: "); Serial.print(pmsData.pm1_0_standard);
@@ -86,7 +92,8 @@ void PMS5003Sensor::print_cu_std()
   Serial.print("\t\tPM 10: "); Serial.println(pmsData.pm10_0_standard);
 }
 
-void PMS5003Sensor::print_cu_env()
+template <class T>
+void PMS5003Sensor<T>::print_cu_env()
 {
   Serial.println("Concentration Units (environmental)");
   Serial.print("PM 1.0: "); Serial.print(pmsData.pm1_0_env);
@@ -94,7 +101,8 @@ void PMS5003Sensor::print_cu_env()
   Serial.print("\t\tPM 10: "); Serial.println(pmsData.pm10_0_env);
 }
 
-void PMS5003Sensor::print_particles()
+template <class T>
+void PMS5003Sensor<T>::print_particles()
 {
   Serial.print("Particles >  0.3um/0.1L: "); Serial.println(pmsData.particles_0_3um);
   Serial.print("Particles >  0.5um/0.1L: "); Serial.println(pmsData.particles_0_5um);
@@ -103,3 +111,9 @@ void PMS5003Sensor::print_particles()
   Serial.print("Particles >  5.0um/0.1L: "); Serial.println(pmsData.particles_5_0um);
   Serial.print("Particles > 10.0um/0.1L: "); Serial.println(pmsData.particles_10_0um);
 }
+
+// explicit template instantiations
+#if defined(ARDUINO_ARCH_SAMD)
+template class PMS5003Sensor<Uart>;
+#endif
+template class PMS5003Sensor<Stream>;
