@@ -66,24 +66,6 @@ bool PMS5003Sensor<T>::read()
 }
 
 template <class T>
-String PMS5003Sensor<T>::pm1_0str()
-{
-  return String(pmsData.pm1_0_standard);
-}
-
-template <class T>
-String PMS5003Sensor<T>::pm2_5str()
-{
-  return String(pmsData.pm2_5_standard);
-}
-
-template <class T>
-String PMS5003Sensor<T>::pm10_0str()
-{
-  return String(pmsData.pm10_0_standard);
-}
-
-template <class T>
 void PMS5003Sensor<T>::print_cu_std()
 {
   Serial.println("Concentration Units (standard)");

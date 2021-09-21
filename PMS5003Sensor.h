@@ -31,9 +31,18 @@ class PMS5003Sensor
   public:
     explicit PMS5003Sensor(T&);
     bool read();
-    String pm1_0str();
-    String pm2_5str();
-    String pm10_0str();
+    String pm1_0str() { return String(pmsData.pm1_0_standard); }
+    String pm2_5str() { return String(pmsData.pm2_5_standard); }
+    String pm10_0str() { return String(pmsData.pm10_0_standard); }
+    String pm1_0envstr() { return String(pmsData.pm1_0_env); }
+    String pm2_5envstr() { return String(pmsData.pm2_5_env); }
+    String pm10_0envstr() { return String(pmsData.pm10_0_env); }
+    String particles_0_3um_str() { return String(pmsData.particles_0_3um); }
+    String particles_0_5um_str() { return String(pmsData.particles_0_5um); }
+    String particles_1_0um_str() { return String(pmsData.particles_1_0um); }
+    String particles_2_5um_str() { return String(pmsData.particles_2_5um); }
+    String particles_5_0um_str() { return String(pmsData.particles_5_0um); }
+    String particles_10_0um_str() { return String(pmsData.particles_10_0um); }
     void print_cu_std();
     void print_cu_env();
     void print_particles();

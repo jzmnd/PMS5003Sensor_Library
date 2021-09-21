@@ -16,6 +16,15 @@ read	KEYWORD2
 pm1_0str	KEYWORD2
 pm2_5str	KEYWORD2
 pm10_0str	KEYWORD2
+pm1_0envstr KEYWORD2
+pm2_5envstr KEYWORD2
+pm10_0envstr    KEYWORD2
+particles_0_3um_str KEYWORD2
+particles_0_5um_str KEYWORD2
+particles_1_0um_str KEYWORD2
+particles_2_5um_str KEYWORD2
+particles_5_0um_str KEYWORD2
+particles_10_0um_str    KEYWORD2
 print_cu_std    KEYWORD2
 print_cu_env    KEYWORD2
 print_particles KEYWORD2
