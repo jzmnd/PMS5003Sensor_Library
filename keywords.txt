@@ -13,6 +13,18 @@ PMS5003data	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 read	KEYWORD2
+pm1_0   KEYWORD2
+pm2_5   KEYWORD2
+pm10_0  KEYWORD2
+pm1_0env    KEYWORD2
+pm2_5env    KEYWORD2
+pm10_0env   KEYWORD2
+particles_0_3um KEYWORD2
+particles_0_5um KEYWORD2
+particles_1_0um KEYWORD2
+particles_2_5um KEYWORD2
+particles_5_0um KEYWORD2
+particles_10_0um    KEYWORD2
 pm1_0str	KEYWORD2
 pm2_5str	KEYWORD2
 pm10_0str	KEYWORD2
